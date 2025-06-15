@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switch</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        background-color: black;
+    }
+
+    /* Скрытый чекбокс */
+    #toggle {
+        display: none;
+    }
+    
+    /* Основной контейнер (он же переключатель) */
+    .main {
+        width: 260px;
+        height: 90px;
+        background-color: orange;
+        border-radius: 30px;
+        position: absolute;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+
+    #sun {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: yellow;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: sun 1s ease-in-out forwards;
+    }
+    @keyframes sun {
+        100%{transform: translateX(180px)}
+    }
+    #cloud1 {
+        position: absolute;
+        top: 35px;
+        left: 170px;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: cloud1 1s ease-in-out forwards;
+    }
+    @keyframes cloud1 {
+        100%{transform: translateX(-140px)}
+    }
+    #cloud2 {
+        position: absolute;
+        top: 55px;
+        left: 140px;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: cloud2 1s ease-in-out forwards;
+    }
+    @keyframes cloud2 {
+        100%{transform: translateX(-140px)}
+    }
+
+    #cloud3 {
+        position: absolute;
+        top: 55px;
+        left: 200px;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: cloud3 1s ease-in-out forwards;
+    }
+    @keyframes cloud3 {
+        100%{transform: translateX(-140px)}
+    }
+    #extra{
+        position: absolute;
+        margin-top: 65px;
+        margin-left: 160px;
+        width: 50px;
+        height: 40px;
+        background-color: white;
+        animation: extra 1s ease-in-out forwards;
+    }
+    @keyframes extra {
+        100%{transform: translateX(-140px)}
+    }
+
+    #sunlight1{
+        position: absolute;
+        background-color: yellow;
+        margin-top: 2px;
+        width: 5px;
+        height: 23px;
+        margin-left: 70px;
+        transform: rotate(70deg);
+        border-radius: 10px;
+        animation: sun1 1s ease-in-out forwards;
+    }
+    @keyframes sun1 {
+        100%{transform: translateX(100px) rotate(110deg)}
+    }
+    #sunlight2{
+        position: absolute;
+        background-color: yellow;
+        margin-top: 28px;
+        width: 5px;
+        height: 23px;
+        margin-left: 78px;
+        transform: rotate(90deg);
+        border-radius: 10px;
+        animation: sun2 1s ease-in-out forwards;
+    }
+    @keyframes sun2 {
+        100%{transform: translateX(90px) rotate(90deg)}
+    }
+    #sunlight3{
+        position: absolute;
+        background-color: yellow;
+        margin-top: 57px;
+        width: 5px;
+        height: 22px;
+        margin-left: 70px;
+        transform: rotate(-60deg);
+        border-radius: 10px;
+        animation: sun3 1s ease-in-out forwards;
+    }
+    @keyframes sun3 {
+        100%{transform: translateX(110px) rotate(-130deg)}
+    }
+
+    #sunlight4{
+        position: absolute;
+        background-color: yellow;
+        margin-top: 68px;
+        width: 5px;
+        height: 19px;
+        margin-left: 40px;
+        transform: rotate(-20deg);
+        border-radius: 10px;
+        animation: sun4 1s ease-in-out forwards;
+    }
+    @keyframes sun4 {
+        100%{transform: translateX(165px) rotate(30deg)}
+    }
+
+    #left_eye{
+        width: 13px;
+        height: 13px;
+        background-color: black;
+        border-radius: 50px;
+        margin-top: 6px;
+        margin-left: 17px;
+        position: absolute;
+        animation: left_eye 1s ease-in-out forwards;
+    }
+    @keyframes left_eye {
+        100%{
+            transform: translateX(2px);
+        }
+    }
+
+    #right_eye{
+        width: 13px;
+        height: 13px;
+        background-color: black;
+        border-radius: 50px;
+        margin-top: 23px;
+        margin-left: 6px;
+        position: absolute;
+        animation: right_eye 1s ease-in-out forwards;
+    }
+    @keyframes right_eye {
+        100%{
+            transform: translateX(26px);
+        }
+    }
+
+    #smile{
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        background-color: black;
+        margin-top: 23px;
+        margin-left: 24px;
+        position: absolute;
+        animation: smile 1s ease-in-out forwards;
+    }
+    @keyframes smile {
+        100%{
+            transform: translateX(-16px);
+        }
+    }
+
+    #mark1{
+        background-color: yellow;
+        position: absolute;
+        margin-top: 23px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+        margin-left: 23px;
+        animation: mark1 1s ease-in-out forwards;
+    }
+    @keyframes mark1 {
+        100%{
+            transform: translateX(-10px);
+        }
+    }
+
+    #mark2{
+        background-color: yellow;
+        position: absolute;
+        margin-top: 22px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        margin-left: 25px;
+        animation: mark2 1s ease-in-out forwards;
+    }
+    @keyframes mark2 {
+        100%{
+            transform: translateX(-8px) translateY(-2px);
+        }
+    }
+
+    #mark3{
+        background-color: yellow;
+        position: absolute;
+        margin-top: 27px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        margin-left: 23px;
+        animation: mark3 1s ease-in-out forwards;
+    }
+    @keyframes mark3 {
+        100%{
+            transform: translateX(-1px) translateY(-2px);
+        }
+    }
+
+    #moon{
+        width: 50px;
+        height: 50px;
+        background-color: rgb(84, 84, 255);
+        border-radius: 50px;
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 200px;
+        opacity: 0;
+    }
+    #mark_moon{
+        width: 40px;
+        height: 40px;
+        background-color: rgb(0, 0, 72);
+        border-radius: 50px;
+        position: absolute;
+        margin-top: 12px;
+        margin-left: 198px;
+        opacity: 0;
+    }
+    #star1{
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        transform: rotate(45deg);
+        position: absolute;
+        margin-left: 160px;
+        margin-top: 20px;
+        box-shadow: 0px 0px 10px rgb(107, 107, 107);
+        border-radius: 1px;
+        opacity: 0;
+    }
+    #star2{
+        width: 9px;
+        height: 9px;
+        background-color: white;
+        transform: rotate(45deg);
+        position: absolute;
+        margin-left: 178px;
+        margin-top: 38px;
+        box-shadow: 0px 0px 10px rgb(107, 107, 107);
+        border-radius: 1px;
+        opacity: 0;
+    }
+    #star3{
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        transform: rotate(45deg);
+        position: absolute;
+        margin-left: 145px;
+        margin-top: 35px;
+        box-shadow: 0px 0px 10px rgb(107, 107, 107);
+        border-radius: 1px;
+        opacity: 0;
+    }
+    .main_night {
+        width: 260.1px;
+        height: 90px;
+        background-color: rgb(0, 0, 72);
+        border-radius: 30px;
+        position: absolute;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    #toggle:checked ~ .main *{
+        opacity: 0;
+    }
+    #toggle:checked ~ .main{
+        opacity: 0;
+    }
+
+    #toggle:checked ~ .main_night *{
+        opacity: 1;
+    }
+    #toggle:checked ~ .main_night{
+        opacity: 1;
+    }
+    
+    #toggle:checked ~ .main_night #moon {
+        animation: moon 1s ease-in-out forwards;
+    }
+    #toggle:checked ~ .main_night #mark_moon {
+        animation: moon_mark 1s ease-in-out forwards;
+    }
+
+
+    #toggle:checked ~ .main #sun {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+    #toggle:not(:checked) ~ .main #sun {
+        animation: sun 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+    #toggle:checked ~ .main #left_eye,
+#toggle:checked ~ .main #right_eye,
+#toggle:checked ~ .main #smile,
+#toggle:checked ~ .main #mark1,
+#toggle:checked ~ .main #mark2,
+#toggle:checked ~ .main #mark3 {
+    animation: none;
+}
+
+#toggle:not(:checked) ~ .main #left_eye {
+    animation: left_eye 1s ease-in-out forwards;
+}
+
+#toggle:not(:checked) ~ .main #right_eye {
+    animation: right_eye 1s ease-in-out forwards;
+}
+
+#toggle:not(:checked) ~ .main #smile {
+    animation: smile 1s ease-in-out forwards;
+}
+
+#toggle:not(:checked) ~ .main #mark1 {
+    animation: mark1 1s ease-in-out forwards;
+}
+
+#toggle:not(:checked) ~ .main #mark2 {
+    animation: mark2 1s ease-in-out forwards;
+}
+
+#toggle:not(:checked) ~ .main #mark3 {
+    animation: mark3 1s ease-in-out forwards;
+}
+
+
+
+    #toggle:checked ~ .main #sunlight1 {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #sunligh1 {
+        animation: sun1 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+    #toggle:checked ~ .main #sunlight2 {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #sunligh2 {
+        animation: sun2 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+    #toggle:checked ~ .main #sunlight3 {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #sunligh3 {
+        animation: sun3 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+    #toggle:checked ~ .main #sunlight4 {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #sunligh4 {
+        animation: sun4 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+
+    #toggle:checked ~ .main #cloud1 {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #cloud1 {
+        animation: cloud1 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+    #toggle:checked ~ .main #cloud2 {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #cloud2 {
+        animation: cloud2 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+    #toggle:checked ~ .main #cloud3 {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #cloud3 {
+        animation: cloud3 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+    #toggle:checked ~ .main #extra {
+        animation: none; /* Отключаем анимацию солнца в ночном режиме */
+    }
+
+    #toggle:not(:checked) ~ .main #extra {
+        animation: extra 1s ease-in-out forwards; /* Перезапускаем анимацию при возврате */
+    }
+
+
+
+
+    @keyframes moon {
+        100%{transform: translateX(-180px)}
+    }
+    @keyframes moon_mark {
+        100%{transform: translateX(-165px)}
+    }
+</style>
+</head>
+<body>
+
+<!-- Чекбокс для переключения -->
+<input type="checkbox" id="toggle">
+
+<!-- Основной блок (переключатель) -->
+<label for = "toggle" class="main">
+    <!-- SUN -->
+    <div id="sun" class = "sun">
+        <div id = "left_eye" class = "sun"></div>
+        <div id = "right_eye" class = "sun"></div>
+        <div id = "smile" class = "sun"></div>
+        <div id = "mark1" class = "sun"></div>
+        <div id = "mark2" class = "sun"></div>
+        <div id = "mark3" class = "sun"></div>
+    </div>
+
+    <!-- CLOUD -->
+    <div id="cloud1"></div>
+    <div id="cloud2"></div>
+    <div id="cloud3"></div>
+    <div id = "extra"></div>
+
+    <!-- SUNLIGHTS -->
+    <div id="sunlight1"></div>
+    <div id="sunlight2"></div>
+    <div id="sunlight3"></div>
+    <div id="sunlight4"></div>
+    
+</label>
+
+<label for = "toggle" class = "main_night">
+    <!-- MOON -->
+    <div class = "main_night">
+        <div id = "moon"></div>
+        <div id = "mark_moon"></div>
+
+        <div id = "star1"></div>
+        <div id = "star2"></div>
+        <div id = "star3"></div>
+    </div>
+</label>
+
+</body>
+</html>

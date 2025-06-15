@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tic tac toe</title>
+
+<style>
+    .board{
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    .left_lines{
+        line-height: 0.85em;
+    }
+    .right_lines{
+        line-height: 0.85em;
+    }
+    .center_top{
+        position: fixed;
+        margin-top: 160px;
+    }
+    .center_bottom{
+        margin-top:360px
+    }
+    .left_top{
+        position: fixed;
+        margin-top: 160px;
+    }
+    .left_bottom{
+        margin-top:360px
+    }
+    .right_top{
+        position: fixed;
+        margin-top: 160px;
+    }
+    .right_bottom{
+        margin-top:360px
+    }
+    #button_center_top{
+        cursor: pointer;
+        clip-path: inset(1% 0 0 0);
+        background-color: white;
+        position: absolute;
+        width: 180px;
+        height: 200px;
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_center_center{
+        cursor: pointer;
+        background-color: white;
+        position: absolute;
+        width: 180px;
+        height: 201px;
+        margin-top: 177px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_center_bottom{
+        cursor: pointer;
+        clip-path: inset(0 0 1% 0);
+        background-color: white;
+        position: absolute;
+        width: 180px;
+        height: 179px;
+        margin-top: 376px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_left_center{
+        cursor: pointer;
+        clip-path: inset(0 0 0 1%);
+        background-color: white;
+        position: absolute;
+        left: 500px;
+        width: 180px;
+        height: 201px;
+        margin-top: 177px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_left_top{
+        cursor: pointer;
+        clip-path: inset(1.5% 0 0 1%);
+        background-color: white;
+        position: absolute;
+        left: 500px;
+        width: 180px;
+        height: 179px;
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_left_bottom{
+        cursor: pointer;
+        clip-path: inset(0 0 1% 1%);
+        background-color: white;
+        position: absolute;
+        left: 500px;
+        width: 180px;
+        height: 179px;
+        margin-top: 376px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_right_top{
+        cursor: pointer;
+        clip-path: inset(2% 1% 0 0);
+        background-color: white;
+        position: absolute;
+        width: 180px;
+        height: 179px;
+        margin-top: 0px;
+        right: 499px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_right_center{
+        cursor: pointer;
+        clip-path: inset(0 1% 0 0);
+        background-color: white;
+        position: absolute;
+        width: 180px;
+        height: 201px;
+        margin-top: 177px;
+        right: 499px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #button_right_bottom{
+        cursor: pointer;
+        clip-path: inset(0 1% 1% 0);
+        background-color: white;
+        position: absolute;
+        width: 180px;
+        height: 179px;
+        margin-top: 376.5px;
+        right: 499px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140%;
+    }
+    #first_turn{
+        position: relative;
+        left: 40%;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border-radius: 15px;
+        border:none;
+        cursor: pointer;
+    }
+    #first_turn:active{
+        background-color: rgb(92, 92, 92);
+        color: white;
+    }
+    #new_turn{
+        display: flex;
+        justify-content: center;
+        font-size: 120%;
+    }
+    #winner{
+        display: flex;
+        justify-content: center;
+        font-size: 120%;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <button id = "first_turn">
+        Throw a coin to find out who is first
+    </button>
+
+    <div id = "new_turn"></div>   
+    
+    <div id = "winner"></div>
+
+    <div class = "board">
+        <b><div class = "left_top">
+            ______________________
+        </div></b>
+
+        <button id = "button_left_top"></button>
+        <button id = "button_left_center"></button>  
+        <button id = "button_left_bottom"></button>
+        <button id = "button_center_top"></button> 
+        <button id = "button_center_center"></button>   
+        <button id = "button_center_bottom"></button>  
+        <button id = "button_right_top"></button> 
+        <button id = "button_right_center"></button> 
+        <button id = "button_right_bottom"></button> 
+        
+
+        <b><div class = "left_bottom">
+            ______________________
+        </div></b>
+
+        <b><div class = "center_top">
+            ______________________
+        </div></b>
+
+        <b><div class = "left_lines">
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |
+        </div></b>
+
+        <b><div class = "center_top">
+            ______________________
+        </div></b>
+
+        <b><div class = "center_bottom">
+            ______________________
+        </div></b>
+
+        <b><div class = "right_lines">
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |<br>
+            |
+        </div></b>
+
+        <b><div class = "right_top">
+            ______________________
+        </div></b>
+
+        <b><div class = "right_bottom">
+            ______________________
+        </div></b>
+
+    </div>
+
+    <script>
+        var first_turn = 0;
+        var total = 0;
+        var winner = document.getElementById("winner");
+        var turn = document.getElementById("new_turn");
+        document.getElementById("first_turn").onclick = function(){
+            var btn = document.getElementById("first_turn");
+            btn.textContent = "";
+            btn.style.backgroundColor = "white"
+            var fst_turn = Math.round(Math.random());
+            if (first_turn == 0){
+                if(fst_turn == 0){
+                    turn.textContent = "noughts turn";
+                    first_turn += 1;
+                    total = 2;
+                }
+                else if(fst_turn == 1){
+                    turn.textContent = "crosses turn";
+                    first_turn += 1;
+                    total = 1;
+                }
+            } 
+            var left_top = document.getElementById("button_left_top");
+            var left_top_clicked = 0;
+            left_top.onclick = function(){
+                if (left_top_clicked == 0){
+                    if(total %2 == 0){
+                        left_top.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }
+                        winner_player()
+                    }
+                    else{
+                        left_top.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }    
+                        winner_player()
+                    }
+                left_top_clicked = 1;
+                } 
+            }  
+            var left_center = document.getElementById("button_left_center");
+            var left_center_clicked = 0;
+            left_center.onclick = function(){
+                if (left_center_clicked == 0){
+                    if(total %2 == 0){
+                        left_center.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }    
+                        winner_player()
+                    }
+                    else{
+                        left_center.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }    
+                        winner_player()
+                    }
+                left_center_clicked = 1;
+                } 
+            }     
+            var left_bottom = document.getElementById("button_left_bottom");
+            var left_bottom_clicked = 0;
+            left_bottom.onclick = function(){
+                if (left_bottom_clicked == 0){
+                    if(total %2 == 0){
+                        left_bottom.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }
+                        winner_player()
+                    }
+                    else{
+                        left_bottom.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }
+                        winner_player()
+                    }
+                left_bottom_clicked = 1;
+                } 
+            }      
+            var center_top = document.getElementById("button_center_top");
+            var center_top_clicked = 0;
+            center_top.onclick = function(){
+                if (center_top_clicked == 0){
+                    if(total %2 == 0){
+                        center_top.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }    
+                        winner_player()
+                    }
+                    else{
+                        center_top.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }
+                        winner_player()
+                    }
+                center_top_clicked = 1;
+                } 
+            }  
+            var center_center = document.getElementById("button_center_center");
+            var center_center_clicked = 0;
+            center_center.onclick = function(){
+                if (center_center_clicked == 0){
+                    if(total %2 == 0){
+                        center_center.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }    
+                        winner_player()
+                    }
+                    else{
+                        center_center.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }
+                        winner_player()
+                    }
+                center_center_clicked = 1;
+                } 
+            } 
+            var center_bottom = document.getElementById("button_center_bottom");
+            var center_bottom_clicked = 0;
+            center_bottom.onclick = function(){
+                if (center_bottom_clicked == 0){
+                    if(total %2 == 0){
+                        center_bottom.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        } 
+                        winner_player()
+                    }
+                    else{
+                        center_bottom.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts"
+                        }
+                        winner_player()
+                    }
+                center_bottom_clicked = 1;
+                } 
+            } 
+            var right_top = document.getElementById("button_right_top");
+            var right_top_clicked = 0;
+            right_top.onclick = function(){
+                if (right_top_clicked == 0){
+                    if(total %2 == 0){
+                        right_top.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }
+                        winner_player()
+                    }
+                    else{
+                        right_top.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }
+                        winner_player()
+                    }
+                right_top_clicked = 1;
+                } 
+            } 
+            var right_center = document.getElementById("button_right_center");
+            var right_center_clicked = 0;
+            right_center.onclick = function(){
+                if (right_center_clicked == 0){
+                    if(total %2 == 0){
+                        right_center.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }
+                        winner_player()
+                    }
+                    else{
+                        right_center.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }
+                        winner_player()
+                    }
+                right_center_clicked = 1;
+                } 
+            } 
+            var right_bottom = document.getElementById("button_right_bottom");
+            var right_bottom_clicked = 0;
+            right_bottom.onclick = function(){
+                if (right_bottom_clicked == 0){
+                    if(total %2 == 0){
+                        right_bottom.textContent = "O";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "crosses turn"
+                        }
+                        winner_player()
+                    }
+                    else{
+                        right_bottom.textContent = "X";
+                        total += 1;
+                        if(winner_count == 1){
+                            turn.textContent = ""
+                        }
+                        else{
+                            turn.textContent = "noughts turn"
+                        }
+                        winner_player()
+                    }
+                right_bottom_clicked = 1;
+                } 
+            } 
+            var winner_count = 0;
+            function winner_player(){
+                if (winner_count == 0){
+                    if(left_top.textContent == "O" & left_center.textContent == "O" & left_bottom.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(center_top.textContent == "O" & center_center.textContent == "O" & center_bottom.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(right_top.textContent == "O" & right_center.textContent == "O" & right_bottom.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_top.textContent == "O" & center_center.textContent == "O" & right_bottom.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(right_top.textContent == "O" & center_center.textContent == "O" & left_bottom.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_top.textContent == "O" & center_top.textContent == "O" & right_top.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_center.textContent == "O" & center_center.textContent == "O" & right_center.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_bottom.textContent == "O" & center_bottom.textContent == "O" & right_bottom.textContent == "O"){
+                        winner.textContent = "noughts won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+
+                    else if(left_top.textContent == "X" & left_center.textContent == "X" & left_bottom.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(center_top.textContent == "X" & center_center.textContent == "X" & center_bottom.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(right_top.textContent == "X" & right_center.textContent == "X" & right_bottom.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_top.textContent == "X" & center_center.textContent == "X" & right_bottom.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(right_top.textContent == "X" & center_center.textContent == "X" & left_bottom.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_top.textContent == "X" & center_top.textContent == "X" & right_top.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_center.textContent == "X" & center_center.textContent == "X" & right_center.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }
+                    else if(left_bottom.textContent == "X" & center_bottom.textContent == "X" & right_bottom.textContent == "X"){
+                        winner.textContent = "crosses won!!"
+                        winner_count += 1;
+                        turn.textContent = "";
+                    }     
+                }
+            } 
+        }
+    </script>
+    
+
+</body>
+
+</html>

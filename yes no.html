@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>yes no</title>
+
+<style>
+    .full{
+        display: flex;
+        justify-content: center;
+        font-size: 110%;
+    }
+    #oval{
+        width: 170px;
+        height: 70px;
+        background-color: black;
+        border-radius: 50px;
+    }
+    #checkbox{
+        cursor: pointer;
+        height: 55px;
+        width: 55px;
+        border-radius: 50px;
+        margin-left: 6px;
+        margin-top: 7px;
+        border: none;
+        transition-duration: 1s;
+        display: flex;
+        justify-content: center;
+        background-color: red;
+        animation-name: name;
+        box-shadow: 3px 3px 50px white;
+    }
+    #text{
+        display: flex;
+        justify-content: center;
+        font-size: 120%;
+    }
+</style>
+</head>
+
+<body>
+    <div class = "full">
+        <div id = "oval">
+            <button id = "checkbox"></button>
+        </div>
+    </div>
+
+    <script>
+        var count = 1;
+        document.getElementById("checkbox").onclick = function(){
+            count += 1;
+            var checkbox = document.getElementById("checkbox");
+            var text = document.getElementById("text");
+            if(count %2 == 0){
+                checkbox.style.transform = `translate(100px, 0px)`;
+                checkbox.style.backgroundColor = `green`;
+            }
+            else{
+                checkbox.style.transform = `translate(0px, 0px)`;
+                checkbox.style.backgroundColor = `red`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

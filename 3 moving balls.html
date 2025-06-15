@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    .full{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 5px black;
+        width: 300px;
+        height: 300px;
+        border-radius: 25px;
+    }
+    #ball_1{
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: black;
+        animation: one 1s infinite ease-in-out;
+    }
+    @keyframes one{
+        0%{transform:translateX(0px)}
+        50%{transform:translateY(-70px)}
+        100%{transform:translateX(65px) translateY(-70px)}
+    }
+    #ball_2{
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 20px;
+        animation: middle 4s infinite ease-in-out;
+        background-color: rgb(138, 0, 0);
+        box-shadow: 0px 0px 5px black;
+    }
+    @keyframes middle{
+        0%{}
+
+
+        12.5%{transform:translateY(-65px)}
+        25%{transform:translateY(0px)}
+            
+
+        37.5%{transform:translateX(65px)}
+        50%{transform:translateX(0px)}
+
+
+        62.5%{transform:translateY(65px)}
+        75%{transform:translateY(0px)}
+
+
+        87.5%{transform:translateX(-65px)}
+        100%{transform:translateX(0px)}
+    }
+    #ball_top{
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-top: -140px;
+        background-color: black;
+        position: absolute;
+        animation: top 1s infinite ease-in-out;
+    }
+    @keyframes top{
+        0%{transform:translateX(0px)}
+        50%{transform:translateX(65px)}
+        100%{transform:translateX(65px) translateY(70px)}
+    }
+    #ball_bottom{
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-top: 140px;
+        background-color: black;
+        position: absolute;
+        animation: bottom 1s infinite ease-in-out;
+    }
+    @keyframes bottom{
+        0%{transform:translateX(0px)}
+        50%{transform:translateX(-65px)}
+        100%{transform:translateX(-65px) translateY(-70px)}
+    }
+    #ball_3{
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: black;
+        animation: three 1s infinite ease-in-out;
+    }
+    @keyframes three{
+        0%{transform:translateY(0px)}
+        50%{transform:translateY(70px)}
+        100%{transform:translateY(70px) translateX(-65px)}
+    }
+</style>
+</head>
+
+<body>
+<div class = "full">
+    <div id = "ball_1"></div>
+    <div id = "ball_2"></div>
+    <div id = "ball_top"></div>
+    <div id = "ball_bottom"></div>
+    <div id = "ball_3"></div>
+</div>
+</body>
+
+</html>

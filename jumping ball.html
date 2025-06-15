@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+    }
+.container{
+    width: 500px;
+    height: 500px;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#ball{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50px;
+    animation: ball 5s ease-in-out infinite;
+    box-shadow: 5px -5px 5px rgb(160, 160, 160);
+}
+@keyframes ball {
+    0%{transform: scaleY(0.8) translateY(10px) translateX(0px);}
+    
+    12.5%{transform:translateY(-25px) translateX(-125px) scaleX(0.95);}
+    25%{transform: scaleY(0.8) translateY(100px) translateX(-125px);}
+
+    37.5%{transform:translateY(-60px) translateX(0px) scaleX(0.95);}
+    50%{transform: scaleY(0.8) translateY(10px) translateX(0px);}
+
+    62.5%{transform:translateY(-120px) translateX(125px) scaleX(0.95);}
+    75%{transform: scaleY(0.8) translateY(-87px) translateX(125px);}
+
+    87.5%{transform:translateY(-100px) translateX(0px) scaleX(0.95);}
+    100%{transform: scaleY(0.8) translateY(10px) translateX(0px);}
+}
+#line_right{
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    border-radius: 15px;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 250px;
+    animation: line_right 1.25s ease-in-out infinite;
+}
+#line{
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    border-radius: 15px;
+    animation: line 1.25s ease-in-out infinite;
+}
+@keyframes line_right {
+    0%{}
+
+    50%{}
+
+    100%{transform: translateY(75px) translateX(-127px)}
+}
+@keyframes line {
+    0%{}
+
+    50%{}
+
+    100%{transform: translateY(75px) translateX(-127px)}
+}
+#line_left{
+    width: 100px;
+    height: 10px;
+    position: absolute;
+    background-color: black;
+    border-radius: 15px;
+    margin-left: -250px;
+    margin-top: 200px;
+    animation: line_left 1.25s ease-in-out infinite;
+}
+@keyframes line_left {
+    0%{}
+
+    10%{background-color: rgba(0, 0, 0, 0.126);}
+
+    100%{}
+}
+#line_right_nonmove{
+    width: 100px;
+    height: 10px;
+    position: absolute;
+    background-color: black;
+    border-radius: 15px;
+    margin-left: 248px;
+    margin-top: -100px;
+    animation: line_right_nonmove 1.25s ease-in-out infinite;
+}
+@keyframes line_right_nonmove {
+    0%{}
+
+    50%{background-color: rgba(0, 0, 0, 0.126);}
+
+    100%{}
+}
+</style>
+</head>
+
+<body>
+
+<div class = "container">
+    <div id = "ball"></div>
+    <div id = "line_right"></div>
+    <div id = "line"></div>
+    <div id = "line_left"></div>
+    <div id = "line_right_nonmove"></div>
+</div>
+
+</body>
+
+</html>

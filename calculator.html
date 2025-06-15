@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+    
+<style>
+    body{
+        justify-items: center;
+    }
+    #main{
+        background-color: rgb(87, 87, 87); 
+        border-radius: 5px;
+        height: 370px;
+    }
+    .button{
+        margin: 2px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        vertical-align: top;
+        font-weight: normal;
+        font-size: 200%;
+    }
+    .button:active{
+        background-color: #bebebe;
+    }
+    .button img{
+        width: 100%; 
+        height: 100%;
+        object-fit: cover;
+    }
+    p{
+        display: inline-flex;
+    }
+    .ready_button {
+        outline: none;
+        box-shadow: none;
+    }    
+    .ready_button:active{
+        background-color: #bebebe;
+    }    
+    #ans {
+        overflow: hidden;
+        white-space: nowrap; /* same line */
+        direction: rtl; /* text right to left */
+        text-align: left;
+        font-size: 160%;
+    }
+</style>
+
+</head>
+
+<body>
+    <br>
+    <div id = "main">
+        <br>
+        <div style = "background-color: hsl(0, 0%, 84%); width: 240px; height: 60px; border-radius: 5px; margin-bottom: 8px; margin-left: 19px;">
+            <div id = "ans"></div>
+        </div>    
+        <p></p>
+            <button class = "button" id = "one">1</button>
+            <button class = "button" id = "two">2</button>
+            <button class = "button" id = "three">3</button>
+            <button class = "button" style = "font-size: 200%;" id = "divide">/</button><br>
+            <p></p>
+            <button class = "button" id = "four">4</button>
+            <button class = "button" id = "five">5</button>
+            <button class = "button" id = "six">6</button>
+            <button class = "button" style = "font-size: 200%;" id = "times">*</button><br>
+            <p></p>
+            <button class = "button" id = "seven">7</button>
+            <button class = "button" id = "eight">8</button>
+            <button class = "button" id = "nine">9</button>
+            <button class = "button" style = "font-size: 200%;" id = "plus">+</button><br>
+            <p></p>
+            <button class = "button" id = "zero">0</button>
+            <button class = "button" style = "font-size: 240%;" id = "dot">.</button>
+            <button class = "button" style = "font-size: 200%;" id = "minus">-</button>
+            <button class = "button" id = "delete"><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRltFwdKvJwLmohP4qanzNEdblZRIQ1MnB29Q&s"></button>
+            <p></p>
+            <br>
+            <button style = "margin-top: 2px; width: 280px; height: 30px; border-radius: 5px; font-size: 140%; font-style: bold" class = "ready_button" id = "ready">Calculate</button>
+    </button> 
+    <script>
+        document.getElementById("one").onclick = function(){
+            document.getElementById("ans").textContent += 1
+        }
+        document.getElementById("two").onclick = function(){
+            document.getElementById("ans").textContent += 2
+        }
+        document.getElementById("three").onclick = function(){
+            document.getElementById("ans").textContent += 3
+        }
+        document.getElementById("divide").onclick = function(){
+            let ans = document.getElementById("ans").textContent;
+            if(ans.endsWith("/") || ans.endsWith("*") || ans.endsWith("+") || ans.endsWith("-") || ans.endsWith(".")){
+                document.getElementById("ans").textContent += "";
+            }
+            else if(ans.length == 0){
+                document.getElementById("ans").textContent += "";
+            }
+            else{
+                document.getElementById("ans").textContent += "/"
+            }
+        }
+        document.getElementById("four").onclick = function(){
+            document.getElementById("ans").textContent += 4
+        }
+        document.getElementById("five").onclick = function(){
+            document.getElementById("ans").textContent += 5
+        }
+        document.getElementById("six").onclick = function(){
+            document.getElementById("ans").textContent += 6
+        }
+        document.getElementById("times").onclick = function(){
+            let ans = document.getElementById("ans").textContent;
+            if(ans.endsWith("/") || ans.endsWith("*") || ans.endsWith("+") || ans.endsWith("-") || ans.endsWith(".")){
+                document.getElementById("ans").textContent += "";
+            }
+            else if(ans.length == 0){
+                document.getElementById("ans").textContent += "";
+            }
+            else{
+                document.getElementById("ans").textContent += "*"
+            }
+        }
+        document.getElementById("seven").onclick = function(){
+            document.getElementById("ans").textContent += 7
+        }
+        document.getElementById("eight").onclick = function(){
+            document.getElementById("ans").textContent += 8
+        }
+        document.getElementById("nine").onclick = function(){
+            document.getElementById("ans").textContent += 9
+        }
+        document.getElementById("plus").onclick = function(){
+            let ans = document.getElementById("ans").textContent;
+            if(ans.endsWith("/") || ans.endsWith("*") || ans.endsWith("+") || ans.endsWith("-") || ans.endsWith(".")){
+                document.getElementById("ans").textContent += "";
+            }
+            else if(ans.length == 0){
+                document.getElementById("ans").textContent += "";
+            }
+            else{
+                document.getElementById("ans").textContent += "+"
+            }
+        }
+        document.getElementById("zero").onclick = function(){
+            document.getElementById("ans").textContent += 0
+        }
+        document.getElementById("dot").onclick = function(){
+            let ans = document.getElementById("ans").textContent;
+            if(ans.endsWith("/") || ans.endsWith("*") || ans.endsWith("+") || ans.endsWith("-") || ans.endsWith(".")){
+                document.getElementById("ans").textContent += "";
+            }
+            else if(ans.length == 0){
+                document.getElementById("ans").textContent += "";
+            }
+            else{
+                document.getElementById("ans").textContent += "."
+            }
+        }
+        document.getElementById("minus").onclick = function(){
+            let ans = document.getElementById("ans").textContent;
+            if(ans.endsWith("/") || ans.endsWith("*") || ans.endsWith("+") || ans.endsWith("-") || ans.endsWith(".")){
+                document.getElementById("ans").textContent += "";
+            }
+            else if(ans.length == 0){
+                document.getElementById("ans").textContent += "";
+            }
+            else{
+                document.getElementById("ans").textContent += "-"
+            }
+        }
+        document.getElementById("delete").onclick = function(){
+            document.getElementById("ans").textContent = ""
+        }
+        document.getElementById("ready").onclick = function() {
+            let ans = document.getElementById("ans").textContent;
+            let final = eval(ans);
+            if (final % 1 != 0) {
+                final = final.toFixed(3);
+            }
+            document.getElementById("ans").textContent = final;   
+        }
+    </script>
+       
+</body>
+
+</html>

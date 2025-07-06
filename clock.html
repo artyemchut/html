@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clock</title>
+
+<style>
+    body{
+        height: 600px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    #circle{
+        width: 250px;
+        height: 250px;
+        background-color: rgba(199, 103, 39, 0.797);
+        border-radius: 500px;
+        outline: solid 2px black;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        overflow: hidden;
+    }
+    #twelve{
+        position: absolute;
+        font-size: 130%;
+        text-shadow: 2px 2px 8px;
+        margin-top: 50px;
+    }
+    #three{
+        position: absolute;
+        transform: translateY(100px) translateX(110px);
+        font-size: 130%;
+        text-shadow: 2px 2px 8px;
+        margin-right: 250px;
+        margin-top: -60px;
+    }
+    #six{
+        position: absolute;
+        transform: translateY(225px);
+        font-size: 130%;
+        text-shadow: 2px 2px 8px;
+        margin-top: -200px;
+    }
+    #nine{
+        position: absolute;
+        transform: translateY(100px) translateX(-110px);
+        font-size: 130%;
+        text-shadow: 2px 2px 8px;
+        margin-top: -60px;
+        margin-left: 250px;
+    }
+    #top{
+        height: 100px;
+        width: 100px;
+        background-color: rgba(198, 89, 0, 0.797);
+        border-radius: 150px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        margin-top: -50px;
+        box-shadow: 0px 0px 15px white;
+    }
+    #right{
+        height: 100px;
+        width: 100px;
+        background-color: rgba(198, 89, 0, 0.797);
+        border-radius: 150px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+        margin-left: 250px;
+        box-shadow: 0px 0px 15px white;
+    }
+    #bottom{
+        height: 100px;
+        width: 100px;
+        background-color: rgba(198, 89, 0, 0.797);
+        border-radius: 150px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        margin-top: 200px;
+        box-shadow: 0px 0px 15px white;
+    }
+    #left{
+        height: 100px;
+        width: 100px;
+        background-color: rgba(198, 89, 0, 0.797);
+        border-radius: 150px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+        margin-left: -250px;
+        box-shadow: 0px 0px 15px white;
+    }
+    #back{
+        width: 140px;
+        height: 140px;
+        background-color: rgb(220, 220, 220);
+        border-radius: 150px;
+        margin-top: 55px;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0px 0px 15px white;
+        align-items: center;
+    }
+
+    #arrow{
+        animation: arrow 4s ease-in-out infinite;
+        filter: drop-shadow(0px 0px 2px);
+    }
+
+    @keyframes arrow {
+        25% { transform: rotate(90deg); }
+        50% { transform: rotate(180deg); }
+        75% { transform: rotate(270deg); }
+       100% { transform: rotate(360deg); } 
+    }
+</style>
+</head>
+
+<body>
+    <div id="circle">
+        <div id = "back">
+            <svg width="34" height="132" viewBox="0 0 34 162" fill="none" xmlns="http://www.w3.org/2000/svg" id ="arrow">
+            <path d="M16.067 1.42464C16.396 0.570392 17.6044 0.570325 17.9333 1.42464L33.7975 42.6405C34.0496 43.2955 33.5658 43.9998 32.8639 43.9998H21.9997V157C21.9997 159.761 19.7611 162 16.9997 162C14.2384 162 11.9997 159.761 11.9997 157V43.9998H1.13638C0.434498 43.9998 -0.0493352 43.2955 0.202789 42.6405L16.067 1.42464Z" fill="url(#paint0_linear_6_8)"/>
+            <defs>
+            <linearGradient id="paint0_linear_6_8" x1="17" y1="0.784016" x2="17" y2="162" gradientUnits="userSpaceOnUse">
+            <stop offset="0.788462" stop-color="#7F3518"/>
+            <stop offset="1" stop-color="black"/>
+            </linearGradient>
+            </defs>
+            </svg>
+        </div>    
+
+        <div id = "top">
+            <b id = "twelve">12</b>
+        </div>    
+        <div id = "right">
+            <b id = "three">3</b>
+        </div>   
+        <div id = "bottom">
+            <b id = "six">6</b>
+        </div>
+        <div id = "left">   
+            <b id = "nine">9</b>
+        </div>      
+    </div>
+</body>
+
+</html>
